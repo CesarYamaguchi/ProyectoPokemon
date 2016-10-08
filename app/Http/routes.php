@@ -18,7 +18,7 @@
 //Principal
 Route::get('/', 'principalController@index');  
 
-Route::get('/inicio', 'principalController@inicio');
+Route::get('/', 'principalController@inicio');
 
 Route::get('/registrarPokemon', 'principalController@registrarPokemon');
 
