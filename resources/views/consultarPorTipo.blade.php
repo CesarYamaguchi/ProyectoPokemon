@@ -14,6 +14,7 @@
 		      	<div class="caption" align="center">
 		          	<h3>{{$pt->pokemon}}</h3>
 		          	<p>
+		          	<a href="{{url('/administrarPokemon')}}/{{$pt->id_pokemon}}" class="btn btn-primary">Administrar</a>
 		          	<a href="{{url('/quitarTipo2')}}/{{$pt->id_pokemon}}/{{$pt->id_tipo}}" class="btn btn-danger">Eliminar</a> 
 		          	<a href="{{url('/pdfPokemon')}}/{{$pt->id_pokemon}}" class="btn btn-default">Descargar</a>
 		          	</p>

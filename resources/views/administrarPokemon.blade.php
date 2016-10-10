@@ -21,10 +21,10 @@
 		<div class="col-xs-3">
 			@if ($pokemon->cantidad_caramelos >= $pokemon->caramelos)
 				<a href="{{url('/subirNivelPokemon')}}/{{$pokemon->id}}">
-					<input type="button" value="Subir nivel" name="levelup" class="btn btn-default" data-target="#validarSubirNivel">
+					<button name="levelup" class="btn btn-default">Subir nivel</button>
 				</a>
 			@else
-					<input type="button" class="btn btn-default" value="Subir nivel" disabled>
+					<button name="levelup" class="btn btn-default" data-toggle="modal" data-target="#validarSubirNivel">Subir nivel</button>
 			@endif
 		</div>
 		<hr>
@@ -124,6 +124,28 @@
 			</tbody>
 		</table>
 	</div>
+
+	<div class="modal fade" id="validarSubirNivel" tabindex="-1" role="dialog" aria-labelledby="validarSubirNivelLabel">
+	  	<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+			    <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Aceptar">
+			          	<span aria-hidden="true">&times;</span>
+			        </button>
+			        <h4 class="modal-title" id="pruebaLabel">Alerta!</h4>
+			    </div>
+		      	<div class="modal-body">
+		        	<p>
+				        No hay suficientes caramelos para subir de nivel.
+		        	</p>
+		      	</div>
+		      	<div class="modal-footer">
+		        	<button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+		      	</div>
+		    </div>
+	  	</div>
+	</div>
+
 @stop
 
 

@@ -52,14 +52,6 @@
   		Pruebas
 	</button>
 
-	<?php
-		if ($sql1 == true) {
-	   		echo '<script> $("#myModal1").show();</script>';
-		} else {
-	    	echo '<script> $("#myModal1").show();</script>';
-		}	
-	?>
-
 	<div class="modal fade" id="prueba" tabindex="-1" role="dialog" aria-labelledby="pruebaLabel">
 	  	<div class="modal-dialog" role="document">
 		    <div class="modal-content">
