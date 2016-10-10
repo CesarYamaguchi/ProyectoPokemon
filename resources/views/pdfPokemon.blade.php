@@ -76,6 +76,6 @@
 		    <p>{{$pokemon->descripcion}}</p>
 		</div>
 	</div>
-	<footer>Copyright &copy; Pokémon 2016</footer>
+	<footer class="tabla">Copyright &copy; Pokémon 2016</footer>
 </body>
 </html>
