@@ -19,9 +19,13 @@
 			<h5>Caramelos: {{$pokemon->cantidad_caramelos}}</h5>
 		</div>
 		<div class="col-xs-3">
-			<a href="{{url('/subirNivelPokemon')}}/{{$pokemon->id}}">
-				<input type="button" value="Subir nivel" name="levelup" class="btn btn-default" data-target="#validarSubirNivel">
-			</a>
+			@if ($pokemon->cantidad_caramelos >= $pokemon->caramelos)
+				<a href="{{url('/subirNivelPokemon')}}/{{$pokemon->id}}">
+					<input type="button" value="Subir nivel" name="levelup" class="btn btn-default" data-target="#validarSubirNivel">
+				</a>
+			@else
+					<input type="button" class="btn btn-default" value="Subir nivel" disabled>
+			@endif
 		</div>
 		<hr>
 		<div class="col-xs-9">
