@@ -29,7 +29,7 @@
 				<input type="hidden" name="_token" value="{{csrf_token() }}">
 				<div class="form-group">
 					<label for="caramelos">Agregar caramelos:</label>
-					<input type="number" class="form-control" name="caramelos" required>
+					<input type="number" min="1" class="form-control" name="caramelos" required>
 				</div>
 				<input type="submit" value="Agregar Caramelos" class="btn btn-primary">
 			</form>
