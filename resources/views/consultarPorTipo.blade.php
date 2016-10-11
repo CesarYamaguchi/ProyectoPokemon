@@ -9,7 +9,7 @@
 		<div class="col-xs-4">
 		   	<div class="thumbnail" style="border-radius: 50px; ">
 		   	  	<div style="Background-image:url({{asset('img/base.png')}}); background-size: 100%"  align="center">
-		   	  		<img src="{{ asset('/img/'.$pt->pokemon.'.png') }}" width="70%" alt="{{$pt->pokemon}}">
+		   	  		<img src="{{ asset('/img/'.$pt->imagen) }}" width="70%" alt="{{$pt->pokemon}}">
 		   	  	</div>
 		      	<div class="caption" align="center">
 		          	<h3>{{$pt->pokemon}}</h3>

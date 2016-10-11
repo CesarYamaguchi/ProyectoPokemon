@@ -13,25 +13,25 @@
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Imagen</th>
-				<th>Nombre</th>
-				<th>Descripción</th>
-				<th>Peso</th>
-				<th>Altura</th>
-				<th>Caramelos</th>
-				<th>PC</th>
-				<th>Vida</th>
-				<th>Defensa</th>
-				<th>Velocidad</th>
-				<th>Cant. Caramelos</th>
-				<th>Opciones</th>
+				<th>Imagen:</th>
+				<th>Nombre:</th>
+				<th>Descripción:</th>
+				<th>Peso:</th>
+				<th>Altura:</th>
+				<th>Caramelos:</th>
+				<th>PC:</th>
+				<th>Vida:</th>
+				<th>Defensa:</th>
+				<th>Velocidad:</th>
+				<th>Cant. Caramelos:</th>
+				<th>Opciones:</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach($pokemons as $p)
 				<tr>
 					<td>{{$p->id}}</td>
-					<td><IMG SRC="{{ asset('/img/'.$p->nombre.'.png') }}" WIDTH=90 HEIGHT=90 ALT="{{$p->nombre}}"></td>
+					<td><IMG SRC="{{ asset('/img/'.$p->imagen) }}" WIDTH=90 HEIGHT=90 ALT="{{$p->nombre}}"></td>
 					<td>{{$p->nombre}}</td>
 					<td>{{$p->descripcion}}</td>
 					<td>{{$p->peso}}</td>

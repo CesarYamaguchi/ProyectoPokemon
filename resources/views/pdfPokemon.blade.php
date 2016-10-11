@@ -10,7 +10,7 @@
 		<img src="{{ asset('/img/EncabezadoPokemon.png')}}" width="100%" height="250px" alt="Pokemon">
 	</div>
 	<div align="center">
-		<img src="{{ asset('/img/'.$pokemon->nombre.'.png') }}" width=180 height=180 alt="{{$pokemon->nombre}}">
+		<img src="{{ asset('/img/'.$pokemon->imagen) }}" width=180 height=180 alt="{{$pokemon->nombre}}">
 		<div class="centro" align="center">
 			<h1>{{$pokemon->nombre}}</h1>
 			<table>

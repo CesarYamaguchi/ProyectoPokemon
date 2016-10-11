@@ -25,7 +25,7 @@
 					<td class="centrado">{{$p->id}}</td>
 					<td class="centrado">{{$p->nombre}}</td>
 					<td class="centrado">
-						<img src="{{ asset('/img/'.$p->nombre.'.png') }}" width=50 height=50 alt="{{$p->nombre}}">
+						<img src="{{ asset('/img/'.$p->imagen) }}" width=50 height=50 alt="{{$p->nombre}}">
 					</td>
 					<td class="justificado">{{$p->descripcion}}</td>
 				</tr>

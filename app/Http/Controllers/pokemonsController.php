@@ -8,10 +8,13 @@ use App\tipos;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class pokemonsController extends Controller
 {
     public function guardar(Request $request){
+        
         $nombre=$request->input('nombre');
         $descripcion=$request->input('descripcion');
         $peso=$request->input('peso');
@@ -21,9 +24,12 @@ class pokemonsController extends Controller
         $vida=$request->input('vida');
         $defensa=$request->input('defensa');
         $velocidad=$request->input('velocidad');
-        $imagen="";
+        //Crear la imagen para guardarla en servidor
+        $imagen=$request->file('imagen');
+        $nombreimagen=$imagen->getClientOriginalName();
+        //Guardamos la imágen en el servidor
+        Storage::disk('local')->put($nombreimagen,File::get($imagen));
         $cantidad_caramelos=0;
-
         //Guardar en BD
 
         $nuevo = new pokemons;
@@ -36,7 +42,7 @@ class pokemonsController extends Controller
         $nuevo->vida=$vida;
         $nuevo->defensa=$defensa;
         $nuevo->velocidad=$velocidad;
-        $nuevo->imagen=$imagen;
+        $nuevo->imagen=$nombreimagen;
         $nuevo->cantidad_caramelos=$cantidad_caramelos;
         $nuevo->save();
 
@@ -67,7 +73,28 @@ class pokemonsController extends Controller
         $pokemon->vida = $datos->input('vida');
         $pokemon->defensa = $datos->input('defensa');
         $pokemon->velocidad = $datos->input('velocidad');
-        $pokemon->imagen = "";
+        $pokemon->imagen=$datos->input('imagen');
+        /*
+        if((Storage::disk('local')->exists($datos->input('imagen')))==false)
+        {
+            $imagen=$datos->file('imagen');
+            $nombreimagen=$imagen->getClientOriginalName();
+            Storage::disk('local')->put($nombreimagen,File::get($imagen));
+            $pokemon->imagen=$nombreimagen;
+        }
+        else
+            $pokemon->imagen = $datos->input('imagen');
+            //$pokemon->imagen = $datos->input('imagen');
+        
+        else
+        {
+            //Crear la imagen para guardarla en servidor
+            $imagen=$datos->file('imagen');
+            //Guardamos la imágen en el servidor
+            Storage::disk('local')->put($datos->input('imagen'),File::get($imagen));
+            $pokemon->imagen = $datos->input('imagen');
+        }
+        */   
         $pokemon->cantidad_caramelos = 0;
         $pokemon->save();
 
@@ -101,7 +128,7 @@ class pokemonsController extends Controller
 			      	    and debilidad = 0) > 0');
 
     	$pokemons_tipos = DB::select('
-    		select P.nombre as pokemon, T.nombre as tipo, PT.id_pokemon, PT.id_tipo
+    		select P.nombre as pokemon,P.imagen as imagen, T.nombre as tipo, PT.id_pokemon, PT.id_tipo
     		from pokemons as P 
     			inner join pokemons_tipos as PT 
     			on P.id = PT.id_pokemon 
@@ -109,6 +136,8 @@ class pokemonsController extends Controller
     			on PT.id_tipo = T.id 
     		where T.id = ? 
     			and debilidad = 0', [$id_tipo]);
+
+        //dd($pokemons_tipos[0]);
 
         $nt = DB::select('
             select nombre 

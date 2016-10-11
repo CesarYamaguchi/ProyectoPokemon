@@ -7,7 +7,7 @@
 @section('contenido')
 	<div class="container" style="background-color: black; border-radius: 20px">
 		<div class="col-xs-3" >
-			<IMG  SRC="{{ asset('/img/'.$pokemon->nombre.'.png') }}" width="100%"  align="middle" ALT="{{$pokemon->nombre}}" >
+			<IMG  SRC="{{asset('/img/'.$pokemon->imagen) }}" width="100%"  align="middle" ALT="{{$pokemon->nombre}}" >
 		</div>
 		<div class="col-xs-9">
 			<h5>Puntos de combate: {{$pokemon->puntos_combate}}</h5>

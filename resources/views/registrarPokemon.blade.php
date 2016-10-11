@@ -6,7 +6,7 @@
 @section('contenido')
 	<div class="container" style="background-color: black; border-radius: 20px">
 		<hr>
-		<form action="{{url('/guardarPokemon')}}" method="POST">
+		<form action="{{url('/guardarPokemon')}}" method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="_token" value="{{csrf_token() }}">
 			<div class="row">
 				<div class="col-xs-12">
