@@ -39,7 +39,7 @@ Route::post('/actualizar/{id}', 'pokemonsController@actualizarPokemon');
 
 Route::get('/eliminarPokemon/{id}', 'pokemonsController@eliminar');
 
-Route::get('/pdfPokemons', 'pokemonsContller@pdfPokemons');
+Route::get('/pdfPokemons', 'pokemonsController@pdfPokemons');
 
 Route::get('/pdfPokemon/{id}', 'pokemonsController@pdfPokemon');
 
